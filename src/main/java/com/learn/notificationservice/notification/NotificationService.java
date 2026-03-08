@@ -1,6 +1,5 @@
-package com.learn.notificationservice.service;
+package com.learn.notificationservice.notification;
 
-import com.learn.notificationservice.notification.NotificationType;
 import com.learn.notificationservice.notification.strategy.NotificationStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

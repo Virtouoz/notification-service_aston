@@ -1,4 +1,5 @@
 package com.learn.notificationservice.notification.strategy;
 
-public class NotificationStrategy {
+public interface NotificationStrategy {
+    void send(String email);
 }

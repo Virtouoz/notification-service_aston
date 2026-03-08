@@ -1,3 +1,8 @@
-package com.learn.notificationservice.dto.event;
+package com.learn.notificationservice.event;
 
-public record UserEvent(String operation, String email, Long userId) {}
+public record UserEvent(
+        String operation,
+        String email,
+        Long userId
+) {
+}

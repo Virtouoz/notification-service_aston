@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        # ← ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        spring.json.type.mapping: com.learn.event.UserEvent:com.learn.notificationservice.event.UserEvent
+        spring.json.trusted.packages: "*"
+
+  mail:
+    host: localhost
+    port: 1025
+    username: ""
+    password: ""
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+
+logging:
+  level:
+    com.learn.notificationservice: DEBUG
+    org.springframework.kafka: DEBUG   # ← удобно видеть, что происходит

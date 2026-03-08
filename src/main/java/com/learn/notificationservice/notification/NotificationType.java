@@ -1,4 +1,6 @@
 package com.learn.notificationservice.notification;
 
-public class NotificationType {
+public enum NotificationType {
+    CREATE,
+    DELETE
 }

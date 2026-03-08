@@ -1,0 +1,23 @@
+spring:
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    consumer:
+      auto-offset-reset: earliest
+      properties:
+        # ← ИСПРАВЛЕНО: поддерживаем оба возможных типа (из user-service и из теста)
+        spring.json.type.mapping: |
+          UserEvent:com.learn.notificationservice.event.UserEvent,
+          com.learn.event.UserEvent:com.learn.notificationservice.event.UserEvent,
+          com.learn.notificationservice.event.UserEvent:com.learn.notificationservice.event.UserEvent
+        spring.json.trusted.packages: "*"
+
+  mail:
+    host: localhost
+    username: ""
+    password: ""
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
